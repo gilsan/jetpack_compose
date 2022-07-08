@@ -26,6 +26,7 @@ import kr.example.jetnote.screens.splash.Splash
 import kr.example.jetnote.screens.trivia.Trivia
 import kr.example.jetnote.screens.trivia.TriviaViewModel
 import kr.example.jetnote.screens.weather.Weather
+import kr.example.jetnote.screens.weather.WeatherViewModel
 import kr.example.jetnote.screens.weather.aboutscreen.About
 import kr.example.jetnote.screens.weather.favoritescreen.Favorite
 import kr.example.jetnote.screens.weather.searchscreen.Search
@@ -112,8 +113,8 @@ fun ScreenNavigation() {
         }
 
         composable(ScreenNav.Weather.name) {
-            // val triviaViewModel  = hiltViewModel<TriviaViewModel>()
-            Weather(navController = navController )
+            val weatherViewModel  = hiltViewModel<WeatherViewModel>()
+            Weather(navController = navController, weatherViewModel = weatherViewModel )
         }
 
         composable(ScreenNav.About.name) {

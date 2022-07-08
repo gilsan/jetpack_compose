@@ -7,10 +7,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowDropDownCircle
-import androidx.compose.material.icons.filled.More
-import androidx.compose.material.icons.filled.MoreHoriz
-import androidx.compose.material.icons.filled.Person
+import androidx.compose.material.icons.filled.*
 import androidx.compose.runtime.*
 
 //import androidx.compose.material.icons.filled.Logout
@@ -268,6 +265,8 @@ fun TopBarWeather(
     icon: ImageVector ,
     elevation: Dp = 0.dp,
     navController: NavController,
+    onAddActionClicked: () -> Unit = {},
+    onButtonClicked: ()-> Unit = {}
 
 ) {
     var showMenu by remember { mutableStateOf(false) }
@@ -286,11 +285,16 @@ fun TopBarWeather(
         },
         actions = {
 
+            IconButton(onClick = {
+                onAddActionClicked.invoke()
+            }) {
+                Icon(imageVector = Icons.Default.Search, contentDescription = "search icon")
+            }
 
             IconButton(onClick = {
                 showMenu = true
             }) {
-                Icon(imageVector = Icons.Default.MoreHoriz, contentDescription = "Icon")
+                Icon(imageVector = Icons.Default.MoreVert, contentDescription = "Icon")
             }
 
 
