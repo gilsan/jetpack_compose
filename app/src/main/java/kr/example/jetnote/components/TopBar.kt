@@ -25,8 +25,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import kr.example.jetnote.model.weathermodel.Favorite
 import kr.example.jetnote.navigation.ScreenNav
+import kr.example.jetnote.screens.weather.favoritescreen.FavoriteViewModel
 
 
 @Composable
@@ -265,12 +268,14 @@ fun TopBarWeather(
     icon: ImageVector ,
     elevation: Dp = 0.dp,
     navController: NavController,
+    favoriteViewModel: FavoriteViewModel = hiltViewModel(),
     onAddActionClicked: () -> Unit = {},
     onButtonClicked: ()-> Unit = {}
 
 ) {
     var showMenu by remember { mutableStateOf(false) }
     var context = LocalContext.current
+    val dataList = title.split(",")
     TopAppBar(
         title = {
             Row(
@@ -332,6 +337,13 @@ fun TopBarWeather(
                     navController.navigate(ScreenNav.HomeScreen.name)
 
                 })
+
+            Icon(imageVector = Icons.Default.Favorite, contentDescription = null, tint = Color.White,
+                    modifier = Modifier.clickable {
+
+                     favoriteViewModel.insertFavorite(Favorite(city= dataList[1].trim(), country= dataList[0].trim()))
+                     Toast.makeText(context, " 도시 추가 했습니다. !!", Toast.LENGTH_SHORT).show()
+                    }.padding(start = 3.dp))
         },
         backgroundColor = Color.Magenta,
         elevation = elevation

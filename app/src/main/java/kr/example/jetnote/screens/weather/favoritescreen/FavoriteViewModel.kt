@@ -1,5 +1,6 @@
 package kr.example.jetnote.screens.weather.favoritescreen
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -18,6 +19,10 @@ class FavoriteViewModel @Inject constructor( private val repositoryDao: WeatherR
     private val _favLists = MutableStateFlow<List<Favorite>>(emptyList())
     val favLists = _favLists
 
+    init {
+        getFavorite()
+    }
+
     fun getFavorite()  {
         viewModelScope.launch(Dispatchers.IO) {
             repositoryDao.getFavorite().distinctUntilChanged().collect {
@@ -26,6 +31,7 @@ class FavoriteViewModel @Inject constructor( private val repositoryDao: WeatherR
 
                 } else {
                     _favLists.value = listOffavs
+                   // Log.d("TAG", "[FavoriteViewModel][29] ===> ${_favLists.value}")
                 }
             }
 

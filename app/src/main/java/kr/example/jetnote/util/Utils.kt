@@ -12,6 +12,15 @@ fun formatDate(time: Long): String {
 
 }
 
+fun formatDate2(timestamp: Int): String {
+    val sdf = SimpleDateFormat("yyy년 MM월 dd일")
+    val date = java.util.Date(timestamp.toLong() * 1000)
+
+    return sdf.format(date)
+}
+
+
+
 fun formatWeekday(timestamp: Int): String {
     val sdf = SimpleDateFormat("EEE")
     val date = java.util.Date(timestamp.toLong() * 1000)

@@ -29,6 +29,7 @@ import kr.example.jetnote.screens.weather.Weather
 import kr.example.jetnote.screens.weather.WeatherViewModel
 import kr.example.jetnote.screens.weather.aboutscreen.About
 import kr.example.jetnote.screens.weather.favoritescreen.Favorite
+import kr.example.jetnote.screens.weather.favoritescreen.FavoriteViewModel
 import kr.example.jetnote.screens.weather.searchscreen.Search
 import kr.example.jetnote.screens.weather.settingscreen.Settings
 
@@ -116,13 +117,27 @@ fun ScreenNavigation() {
             val weatherViewModel  = hiltViewModel<WeatherViewModel>()
             Weather(navController = navController, weatherViewModel = weatherViewModel )
         }
+        
+        composable(ScreenNav.Weather.name + "/{city}",
+          arguments = listOf(navArgument(name = "city"){
+              type= NavType.StringType
+          })) {
+            navBackStackEntry ->
+            val weatherViewModel  = hiltViewModel<WeatherViewModel>()
+            Weather(
+                navController = navController,
+                weatherViewModel = weatherViewModel,
+                navBackStackEntry.arguments?.getString("city")!!
+                )
+        }
 
         composable(ScreenNav.About.name) {
             About(navController = navController )
         }
 
         composable(ScreenNav.Favorite.name) {
-            Favorite(navController = navController )
+            val favoriteViewModel = hiltViewModel<FavoriteViewModel>()
+            Favorite(navController = navController , favoriteViewModel = favoriteViewModel)
         }
 
         composable(ScreenNav.Search.name) {
