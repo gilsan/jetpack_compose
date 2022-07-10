@@ -106,7 +106,7 @@ fun HomeTopBar(
                     DropdownMenuItem(onClick = {
                         navController.navigate(ScreenNav.Note2.name)
                     }) {
-                        Text(text="기록", fontSize=20.sp, fontWeight = FontWeight.SemiBold)
+                        Text(text="메모", fontSize=20.sp, fontWeight = FontWeight.SemiBold)
                     }
 
                     DropdownMenuItem(onClick = {
@@ -276,6 +276,10 @@ fun TopBarWeather(
     var showMenu by remember { mutableStateOf(false) }
     var context = LocalContext.current
     val dataList = title.split(",")
+    val isAlreadyDatabase = favoriteViewModel.favLists.collectAsState().value.filter {
+        favorite ->
+        (favorite.city == dataList[1].trim())
+    }
     TopAppBar(
         title = {
             Row(
@@ -338,12 +342,24 @@ fun TopBarWeather(
 
                 })
 
-            Icon(imageVector = Icons.Default.Favorite, contentDescription = null, tint = Color.White,
-                    modifier = Modifier.clickable {
+            if (isAlreadyDatabase.isNullOrEmpty()) {
+                Icon(imageVector = Icons.Default.Favorite, contentDescription = null, tint = Color.White,
+                    modifier = Modifier
+                        .clickable {
 
-                     favoriteViewModel.insertFavorite(Favorite(city= dataList[1].trim(), country= dataList[0].trim()))
-                     Toast.makeText(context, " 도시 추가 했습니다. !!", Toast.LENGTH_SHORT).show()
-                    }.padding(start = 3.dp))
+                            favoriteViewModel.insertFavorite(
+                                Favorite(
+                                    city = dataList[1].trim(),
+                                    country = dataList[0].trim()
+                                )
+                            )
+                            Toast
+                                .makeText(context, " 도시 추가 했습니다. !!", Toast.LENGTH_SHORT)
+                                .show()
+                        }
+                        .padding(start = 3.dp))
+            }
+
         },
         backgroundColor = Color.Magenta,
         elevation = elevation

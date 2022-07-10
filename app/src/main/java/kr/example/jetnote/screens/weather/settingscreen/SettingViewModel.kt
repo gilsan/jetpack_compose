@@ -26,8 +26,7 @@ class SettingViewModel @Inject constructor( private val repositoryDao: WeatherRe
 
     private fun getSettings() {
         viewModelScope.launch(Dispatchers.IO) {
-            repositoryDao.getSetting().distinctUntilChanged().collect {
-                listOfUnit ->
+            repositoryDao.getSetting().distinctUntilChanged().collect { listOfUnit ->
                 if (listOfUnit.isNullOrEmpty()) {
 
                 } else {
@@ -35,8 +34,8 @@ class SettingViewModel @Inject constructor( private val repositoryDao: WeatherRe
                 }
             }
         }
-
-    fun insetUnit(temperatureUnit: TemperatureUnit) {
+    }
+    fun insertUnit(temperatureUnit: TemperatureUnit) {
         viewModelScope.launch {
             repositoryDao.insertUnit(temperatureUnit)
         }
@@ -54,11 +53,17 @@ class SettingViewModel @Inject constructor( private val repositoryDao: WeatherRe
         }
     }
 
-
-
-
-
-
-
+    fun deleteAllUnit() {
+        viewModelScope.launch {
+            repositoryDao.deleteAllUnit()
+        }
     }
+
+
+
+
+
+
+
+
 }

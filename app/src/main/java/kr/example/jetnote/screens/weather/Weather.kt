@@ -5,13 +5,14 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.Scaffold
+import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.produceState
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import kr.example.jetnote.components.MainContent
@@ -20,20 +21,37 @@ import kr.example.jetnote.components.WeatherModel
 import kr.example.jetnote.data.DataOrException
 import kr.example.jetnote.model.weathermodel.Weather
 import kr.example.jetnote.navigation.ScreenNav
+import kr.example.jetnote.screens.weather.settingscreen.SettingViewModel
 
 
 @Composable
 fun Weather(
     navController: NavController,
     weatherViewModel: WeatherViewModel = hiltViewModel(),
-    city: String = "seoul"
+    city: String = "seoul",
+    settingViewModel: SettingViewModel = hiltViewModel(),
 ) {
+
+    val choiceFromDB = settingViewModel.unitLists.collectAsState().value
+    var korUnit: String? = null
+    var unit by remember { mutableStateOf("imperial")}
+
+    if (choiceFromDB.isNotEmpty()) {
+        korUnit = choiceFromDB[0].unit.toString()
+        if (korUnit == "C") {
+            unit = "imperial"
+        } else if (korUnit == "F") {
+            unit = "metric"
+        }
+    }
 
     // 중요
     val weatherData = produceState<DataOrException<Weather, Boolean, Exception>>(
         initialValue = DataOrException(loading = true) ) {
-        value = weatherViewModel.getWeather(city = city.toString())
+        value = weatherViewModel.getWeather(city = city.toString(), units = unit)
     } .value
+
+
 
     if (weatherData.loading == true) {
         androidx.compose.material.Surface(
@@ -62,6 +80,8 @@ fun Weather(
                 )
             },
         ) {
+            Text(text="온도표시: ${choiceFromDB[0].unit}", fontSize = 10.sp)
+
             if (weatherData.data?.city?.country != null) {
                 WeatherModel(navController = navController ,weather = weatherData.data!!)
             }

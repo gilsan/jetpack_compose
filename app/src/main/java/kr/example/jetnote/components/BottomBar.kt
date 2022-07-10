@@ -53,3 +53,40 @@ fun MyBotttomBar(navController: NavController) {
 
 }
 
+@Composable
+fun  NoteBotttomBar(navController: NavController) {
+    val backStackEntry by navController.currentBackStackEntryAsState()
+    val currentRoute = backStackEntry?.destination?.route
+
+    val noteScreen = listOf(
+        NoteScreen.Home,
+        NoteScreen.Profile,
+        NoteScreen.Notification
+    )
+
+    BottomNavigation {
+        noteScreen.forEach {
+                screen ->
+            BottomNavigationItem(
+                selected = currentRoute == screen.route,
+                onClick = {
+                    navController.navigate(screen.route) {
+                        popUpTo(navController.graph.findStartDestination().id) {
+                            saveState = true
+                        }
+                        launchSingleTop = true
+                        restoreState = true
+                    }
+                },
+                icon = {
+                    Icon(imageVector = screen.icon, contentDescription = screen.title )
+                },
+                label = {
+                    Text(text=screen.title)
+                })
+        }
+
+    }
+
+}
+

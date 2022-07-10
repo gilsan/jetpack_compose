@@ -40,4 +40,8 @@ class WeatherRepositoryDao @Inject constructor( private val weatherDao: WeatherD
     suspend fun deleteUnit(temperatureUnit: TemperatureUnit) {
         return weatherDao.deleteUnit(temperatureUnit)
     }
+
+    suspend fun deleteAllUnit() {
+        return weatherDao.deleteAllUnit()
+    }
 }
