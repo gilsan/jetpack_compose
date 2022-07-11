@@ -23,7 +23,7 @@ sealed class NoteScreen (
         )  {
     object Home: NoteScreen( "home", Icons.Default.Home, "홈")
     object Profile: NoteScreen("profile", Icons.Default.Person, "카운터")
-    object Notification: NoteScreen("notification", Icons.Default.Notifications, "예비")
+    object Notification: NoteScreen("notification", Icons.Default.Notifications, "명함")
 }
 
 

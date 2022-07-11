@@ -25,7 +25,7 @@ fun Note2(navController: NavController, noteViewModel: MemoViewModel) {
     val navControllerBottom = rememberNavController()
     Scaffold(
         topBar = {
-            TopBar(title = "노트", icon = Icons.Default.ArrowBack, navController = navController )
+            TopBar(title = "메모", icon = Icons.Default.ArrowBack, navController = navController )
         },
         bottomBar = {
             NoteBotttomBar(navController = navControllerBottom)
