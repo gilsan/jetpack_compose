@@ -19,6 +19,7 @@ import kr.example.jetnote.screens.note.MemoViewModel
 import kr.example.jetnote.screens.note.Note2
 import kr.example.jetnote.screens.note2.Note
 import kr.example.jetnote.screens.note2.NoteViewModel
+import kr.example.jetnote.screens.readbook.home.ReaderHome
 import kr.example.jetnote.screens.screenb.ScreenB
 import kr.example.jetnote.screens.screenc.ScreenC
 import kr.example.jetnote.screens.showImage.ShowImage
@@ -146,6 +147,11 @@ fun ScreenNavigation() {
 
         composable(ScreenNav.Setting.name) {
             Settings(navController = navController )
+        }
+
+        // Reader
+        composable(ScreenNav.Reader.name) {
+            ReaderHome(navController = navController)
         }
 
 

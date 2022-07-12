@@ -19,6 +19,7 @@ enum class ScreenNav {
     Search,
     Setting,
     Splash,
+    Reader,
     AnimationScreen;
 
     companion object {
@@ -41,6 +42,7 @@ enum class ScreenNav {
             Favorite.name -> Favorite
             Search.name -> Search
             Splash.name -> Splash
+            Reader.name -> Reader
             AnimationScreen.name -> AnimationScreen
             else -> throw IllegalArgumentException("경로를 찿을수 없습니다.")
         }

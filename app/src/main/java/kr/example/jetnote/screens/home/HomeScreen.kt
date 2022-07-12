@@ -10,6 +10,8 @@ import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
 import androidx.compose.runtime.*
+import androidx.compose.runtime.livedata.observeAsState
+
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -18,6 +20,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import kr.example.jetnote.components.HomeTopBar
 
@@ -35,10 +38,13 @@ fun HomeScreen(navController: NavController) {
                 .fillMaxHeight()
 
         ) {
-            var fieldValue by remember { mutableStateOf(0) }
-
-            BoxScreen(fieldValue = fieldValue , navController = navController) {
-                fieldValue = it
+             var fieldValue by remember { mutableStateOf(0) }
+             val countVM: HomeScreenViewModel  = viewModel()
+             val field by countVM.count.observeAsState(0)
+             // val fieldValue by countVM.count.observeAsState(0)
+            BoxScreen(fieldValue = field , navController = navController) {
+                // fieldValue = it
+                countVM.onCountChange(it)
             }
         }
 
@@ -97,7 +103,10 @@ fun BoxScreen(
                 },
                     modifier = Modifier
                         .padding(2.dp)
-                        .border(border = BorderStroke(width = 1.dp, color = Color.Cyan), shape = CircleShape)
+                        .border(
+                            border = BorderStroke(width = 1.dp, color = Color.Cyan),
+                            shape = CircleShape
+                        )
                 ) {
                     Icon(
                         imageVector = Icons.Default.Add,
@@ -109,7 +118,10 @@ fun BoxScreen(
                 },
                     modifier = Modifier
                         .padding(2.dp)
-                        .border(border = BorderStroke(width = 1.dp, color = Color.Cyan), shape = CircleShape)
+                        .border(
+                            border = BorderStroke(width = 1.dp, color = Color.Cyan),
+                            shape = CircleShape
+                        )
                 ) {
                     Icon(
                         imageVector = Icons.Default.Remove,
