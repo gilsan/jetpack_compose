@@ -9,7 +9,7 @@ android {
     compileSdk 32
 
     defaultConfig {
-        applicationId "kr.example.jetnote"
+        applicationId "kr.example.jetareader"
         minSdk 21
         targetSdk 32
         versionCode 1
