@@ -81,4 +81,6 @@ object AppModule {
                 .build().create(WeatherAPI::class.java)
     }
 
+    //////////// READER   //////////////////
+
 }

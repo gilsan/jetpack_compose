@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "184508255563",
+    "project_id": "clips-bf61a",
+    "storage_bucket": "clips-bf61a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:184508255563:android:d852e9428b0a9b4d162cce",
+        "android_client_info": {
+          "package_name": "kr.example.jetareader"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "184508255563-p4as5bhpiv201ut9m1kkn172v2f2sfdo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBt9yB_gHU9sqpU4tHPIq7kTIP8x-Fxv5U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "184508255563-p4as5bhpiv201ut9m1kkn172v2f2sfdo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

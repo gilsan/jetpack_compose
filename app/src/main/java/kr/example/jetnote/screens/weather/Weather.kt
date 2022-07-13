@@ -1,5 +1,6 @@
 package kr.example.jetnote.screens.weather
 
+import android.util.Log
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -48,12 +49,12 @@ fun Weather(
     // 중요
     val weatherData = produceState<DataOrException<Weather, Boolean, Exception>>(
         initialValue = DataOrException(loading = true) ) {
-        value = weatherViewModel.getWeather(city = city.toString(), units = unit)
+        value = weatherViewModel.getWeather(city = city, units = unit)
     } .value
 
 
+    if (weatherData.loading == true  ) {
 
-    if (weatherData.loading == true) {
         androidx.compose.material.Surface(
             modifier = Modifier.fillMaxSize()
         ) {
@@ -65,30 +66,27 @@ fun Weather(
 
             }
         }
-    } else {
+    } else  {
 
-        Scaffold(
-            topBar = {
-                TopBarWeather(
-                    title = if (weatherData.loading == true) "날씨안내" else  "${weatherData.data?.city?.country} , ${weatherData.data?.city?.name}" ,
-                    icon = Icons.Default.ArrowBack ,
-                    navController = navController,
-                    onAddActionClicked = {
-                        navController.navigate(ScreenNav.Search.name)
-                    },
-                    elevation = 5.dp
-                )
-            },
-        ) {
-            Text(text="온도표시: ${choiceFromDB[0].unit}", fontSize = 10.sp)
+            Scaffold(
+                topBar = {
+                    TopBarWeather(
+                        title = if (weatherData.loading == true) "날씨안내" else  "${weatherData.data?.city?.country} , ${weatherData.data?.city?.name}" ,
+                        icon = Icons.Default.ArrowBack ,
+                        navController = navController,
+                        onAddActionClicked = {
+                            navController.navigate(ScreenNav.Search.name)
+                        },
+                        elevation = 5.dp
+                    )
+                },
+            ) {
 
-            if (weatherData.data?.city?.country != null) {
-                WeatherModel(navController = navController ,weather = weatherData.data!!)
+                if (weatherData.data?.city?.country != null) {
+                    WeatherModel(navController = navController ,weather = weatherData.data!!)
+                }
+
             }
-
-
-
-        }
 
 
 

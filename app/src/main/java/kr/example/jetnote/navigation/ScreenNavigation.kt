@@ -10,6 +10,7 @@ import androidx.navigation.navArgument
 import androidx.navigation.compose.rememberNavController
 
 
+
 import kr.example.jetnote.screens.animation.AnimationScreen
 import kr.example.jetnote.screens.greeting.Greeting
 import kr.example.jetnote.screens.home.HomeScreen
@@ -17,15 +18,17 @@ import kr.example.jetnote.screens.movies.Movie
 import kr.example.jetnote.screens.movies.MovieDetail
 import kr.example.jetnote.screens.note.MemoViewModel
 import kr.example.jetnote.screens.note.Note2
-import kr.example.jetnote.screens.note2.Note
-import kr.example.jetnote.screens.note2.NoteViewModel
-import kr.example.jetnote.screens.readbook.home.ReaderHome
+
+import kr.example.jetnote.screens.readbook.SplashScreen
+
+import kr.example.jetnote.screens.readbook.home.ReaderHomeScreen
+import kr.example.jetnote.screens.readbook.login.LoginScreen
 import kr.example.jetnote.screens.screenb.ScreenB
 import kr.example.jetnote.screens.screenc.ScreenC
 import kr.example.jetnote.screens.showImage.ShowImage
 import kr.example.jetnote.screens.splash.Splash
 import kr.example.jetnote.screens.trivia.Trivia
-import kr.example.jetnote.screens.trivia.TriviaViewModel
+
 import kr.example.jetnote.screens.weather.Weather
 import kr.example.jetnote.screens.weather.WeatherViewModel
 import kr.example.jetnote.screens.weather.aboutscreen.About
@@ -150,8 +153,17 @@ fun ScreenNavigation() {
         }
 
         // Reader
-        composable(ScreenNav.Reader.name) {
-            ReaderHome(navController = navController)
+
+        composable(ScreenNav.SplashScreen.name) {
+            SplashScreen(navController = navController)
+        }
+
+        composable(ScreenNav.ReaderHomeScreen.name) {
+            ReaderHomeScreen(navController = navController)
+        }
+        
+        composable(ScreenNav.LoginScreen.name) {
+            LoginScreen(navController = navController)
         }
 
 

@@ -19,7 +19,14 @@ enum class ScreenNav {
     Search,
     Setting,
     Splash,
-    Reader,
+    SplashScreen,
+    LoginScreen,
+    CreateAccountScreen,
+    ReaderHomeScreen,
+    SearchScreen,
+    DetailsScreen,
+    UpdateScreen,
+    ReaderStatsScreen,
     AnimationScreen;
 
     companion object {
@@ -42,7 +49,14 @@ enum class ScreenNav {
             Favorite.name -> Favorite
             Search.name -> Search
             Splash.name -> Splash
-            Reader.name -> Reader
+            SplashScreen.name -> SplashScreen
+            LoginScreen.name -> LoginScreen
+            CreateAccountScreen.name -> CreateAccountScreen
+            ReaderHomeScreen.name -> ReaderHomeScreen
+            SearchScreen.name -> SearchScreen
+            DetailsScreen.name -> DetailsScreen
+            UpdateScreen.name -> UpdateScreen
+            ReaderStatsScreen.name -> ReaderStatsScreen
             AnimationScreen.name -> AnimationScreen
             else -> throw IllegalArgumentException("경로를 찿을수 없습니다.")
         }
