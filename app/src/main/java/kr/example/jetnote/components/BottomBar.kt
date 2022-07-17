@@ -90,3 +90,40 @@ fun  NoteBotttomBar(navController: NavController) {
 
 }
 
+@Composable
+fun  AniBotttomBar(navController: NavController) {
+    val backStackEntry by navController.currentBackStackEntryAsState()
+    val currentRoute = backStackEntry?.destination?.route
+
+    val aniScreen = listOf(
+        AniScreen.Home,
+        AniScreen.Profile,
+        AniScreen.Notification
+    )
+
+    BottomNavigation {
+        aniScreen.forEach {
+                screen ->
+            BottomNavigationItem(
+                selected = currentRoute == screen.route,
+                onClick = {
+                    navController.navigate(screen.route) {
+                        popUpTo(navController.graph.findStartDestination().id) {
+                            saveState = true
+                        }
+                        launchSingleTop = true
+                        restoreState = true
+                    }
+                },
+                icon = {
+                    Icon(imageVector = screen.icon, contentDescription = screen.title )
+                },
+                label = {
+                    Text(text=screen.title)
+                })
+        }
+
+    }
+
+}
+

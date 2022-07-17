@@ -44,7 +44,13 @@ fun SplashScreen(navController: NavController) {
         if (FirebaseAuth.getInstance().currentUser?.email.isNullOrEmpty()) {
             navController.navigate(ScreenNav.LoginScreen.name)
         } else {
-            navController.navigate(ScreenNav.HomeScreen.name)
+            val id = FirebaseAuth.getInstance().currentUser?.uid
+            if (id.toString().isNotEmpty()) {
+                navController.navigate(ScreenNav.ReaderHomeScreen.name + "/$id")
+            } else {
+                navController.navigate(ScreenNav.ReaderHomeScreen.name)
+            }
+
         }
     } )
 

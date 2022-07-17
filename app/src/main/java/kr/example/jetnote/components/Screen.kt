@@ -26,5 +26,15 @@ sealed class NoteScreen (
     object Notification: NoteScreen("notification", Icons.Default.Notifications, "명함")
 }
 
+sealed class AniScreen (
+    val route: String,
+    val icon: ImageVector,
+    val title: String
+)  {
+    object Home: AniScreen( "home", Icons.Default.Home, "애니1")
+    object Profile: AniScreen("profile", Icons.Default.Person, "애니2")
+    object Notification: AniScreen("notification", Icons.Default.Notifications, "애니3")
+}
+
 
 

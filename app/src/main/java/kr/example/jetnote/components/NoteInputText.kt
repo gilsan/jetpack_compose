@@ -17,6 +17,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
@@ -49,6 +50,26 @@ fun NoteInputText(
         }),
         modifier = modifier
         )
+}
+
+@Composable
+fun Login(modifier: Modifier = Modifier) {
+    Text(
+        text="로그인",
+        color = Color.Red,
+        fontSize= 30.sp,
+        fontWeight = FontWeight.Bold
+    )
+}
+
+@Composable
+fun Register(modifier: Modifier = Modifier) {
+    Text(
+        text="등록",
+        color = Color.Red,
+        fontSize= 30.sp,
+        fontWeight = FontWeight.Bold
+    )
 }
 
 @Composable
@@ -109,7 +130,7 @@ fun InputField(
         singleLine = isSingleLine,
         textStyle = TextStyle(fontSize = 18.sp,
             color= MaterialTheme.colors.onBackground),
-        modifier = Modifier
+        modifier = modifier
             .padding(bottom = 10.dp, start = 10.dp, top = 10.dp, end = 10.dp)
             .fillMaxWidth(),
         enabled = enabled,
@@ -138,7 +159,7 @@ fun PasswordInput(
         label = { Text(text= labelId)},
         singleLine = true,
         textStyle = TextStyle(fontSize= 18.sp, color= MaterialTheme.colors.onBackground ),
-        modifier = Modifier
+        modifier = modifier
             .padding(start = 10.dp, end = 10.dp, top = 10.dp, bottom = 10.dp)
             .fillMaxWidth(),
         enabled = enabled,

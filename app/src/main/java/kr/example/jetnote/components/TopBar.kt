@@ -27,6 +27,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import com.google.firebase.auth.FirebaseAuth
 import kr.example.jetnote.model.weathermodel.Favorite
 import kr.example.jetnote.navigation.ScreenNav
 import kr.example.jetnote.screens.weather.favoritescreen.FavoriteViewModel
@@ -188,6 +189,48 @@ fun TopBarHome(
             }
         },
         actions = {},
+        navigationIcon = {
+            Icon(imageVector = icon, contentDescription = "back icon",
+                tint = Color.White, modifier = Modifier.clickable {
+                    navController.navigate(ScreenNav.HomeScreen.name)
+
+                })
+        },
+        backgroundColor = Color.Magenta,
+        elevation = elevation
+    )
+}
+
+
+@Composable
+fun TopBarReader(
+    title: String = "",
+    icon: ImageVector ,
+    elevation: Dp = 0.dp,
+    navController: NavController,
+
+) {
+
+     val auth: FirebaseAuth = FirebaseAuth.getInstance()
+    TopAppBar(
+        title= {
+            Row(
+                horizontalArrangement = Arrangement.Center
+            ) {
+                Text(text=title, modifier = Modifier.padding(2.dp),
+                    color=Color.White,
+                    fontSize = 20.sp, fontWeight = FontWeight.Bold)
+            }
+        },
+        actions = {
+                  Icon(imageVector = Icons.Default.Logout, contentDescription = "logout", tint = Color.White,
+                      modifier = Modifier.clickable {
+                          auth.signOut().run {
+                              navController.navigate(ScreenNav.LoginScreen.name)
+                          }
+                      }
+                  )
+        },
         navigationIcon = {
             Icon(imageVector = icon, contentDescription = "back icon",
                 tint = Color.White, modifier = Modifier.clickable {

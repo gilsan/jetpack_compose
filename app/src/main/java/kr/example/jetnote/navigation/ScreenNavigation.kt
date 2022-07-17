@@ -23,6 +23,8 @@ import kr.example.jetnote.screens.readbook.SplashScreen
 
 import kr.example.jetnote.screens.readbook.home.ReaderHomeScreen
 import kr.example.jetnote.screens.readbook.login.LoginScreen
+import kr.example.jetnote.screens.readbook.search.ReaderSearch
+import kr.example.jetnote.screens.readbook.stats.ReaderStatsScreen
 import kr.example.jetnote.screens.screenb.ScreenB
 import kr.example.jetnote.screens.screenc.ScreenC
 import kr.example.jetnote.screens.showImage.ShowImage
@@ -159,13 +161,31 @@ fun ScreenNavigation() {
         }
 
         composable(ScreenNav.ReaderHomeScreen.name) {
-            ReaderHomeScreen(navController = navController)
+            ReaderHomeScreen(navController = navController, id = null )
+        }
+
+        composable(ScreenNav.ReaderHomeScreen.name + "/{id}",
+            arguments = listOf( navArgument(name="id") {
+                type= NavType.StringType
+            })
+            ) {
+                navBackStackEntry ->
+                ReaderHomeScreen(navController = navController,
+                    navBackStackEntry.arguments?.getString("id")
+            )
         }
         
         composable(ScreenNav.LoginScreen.name) {
             LoginScreen(navController = navController)
         }
 
+        composable(ScreenNav.SearchScreen.name) {
+            ReaderSearch(navController = navController)
+        }
+
+        composable(ScreenNav.ReaderStatsScreen.name) {
+            ReaderStatsScreen(navController = navController)
+        }
 
 
     }

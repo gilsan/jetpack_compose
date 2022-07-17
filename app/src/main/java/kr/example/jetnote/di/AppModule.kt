@@ -12,6 +12,7 @@ import kr.example.jetnote.data.NoteDatabaseDao
 import kr.example.jetnote.data.weather.WeatherDao
 import kr.example.jetnote.data.weather.WeatherDatabase
 import kr.example.jetnote.network.QuestionAPI
+import kr.example.jetnote.network.ReaderAPI
 import kr.example.jetnote.network.WeatherAPI
 import kr.example.jetnote.repository.QuestionRepository
 import kr.example.jetnote.util.Constants
@@ -82,5 +83,14 @@ object AppModule {
     }
 
     //////////// READER   //////////////////
+
+    @Singleton
+    @Provides
+    fun provideReaderAPI(): ReaderAPI {
+        return Retrofit.Builder()
+            .baseUrl(Constants.READER_BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build().create(ReaderAPI::class.java)
+    }
 
 }

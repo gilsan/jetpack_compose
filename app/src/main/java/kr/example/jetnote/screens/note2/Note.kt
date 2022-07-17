@@ -49,8 +49,6 @@ fun NoteModel(
     val notes = noteViewModel.noteList.collectAsState().value
     // val notes = getNoteList()
 
-
-
         NavHost(
             navController = navHostController,
             startDestination =  NoteScreen.Home.route,
