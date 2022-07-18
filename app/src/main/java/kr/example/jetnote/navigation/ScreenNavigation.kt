@@ -26,6 +26,7 @@ import kr.example.jetnote.screens.readbook.home.ReaderHomeScreen
 import kr.example.jetnote.screens.readbook.login.LoginScreen
 import kr.example.jetnote.screens.readbook.search.ReaderSearch
 import kr.example.jetnote.screens.readbook.stats.ReaderStatsScreen
+import kr.example.jetnote.screens.readbook.update.UpdateScreen
 import kr.example.jetnote.screens.screenb.ScreenB
 import kr.example.jetnote.screens.screenc.ScreenC
 import kr.example.jetnote.screens.showImage.ShowImage
@@ -198,7 +199,13 @@ fun ScreenNavigation() {
                 navBackStackEntry ->
                   ReaderDetail(navController = navController, id =  navBackStackEntry.arguments?.getString("bookId").toString())
 
+        }
 
+        composable(ScreenNav.UpdateScreen.name + "/{bookID}",
+            arguments = listOf(navArgument(name="bookID"){ type= NavType.StringType})
+            ) {
+            navBackStackEntry ->
+            UpdateScreen(navController = navController, bookId = navBackStackEntry.arguments?.getString("bookID").toString() )
         }
 
     }

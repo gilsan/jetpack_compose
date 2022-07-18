@@ -2,6 +2,7 @@ package kr.example.jetnote.di
 
 import android.content.Context
 import androidx.room.Room
+import com.google.firebase.firestore.FirebaseFirestore
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -14,6 +15,7 @@ import kr.example.jetnote.data.weather.WeatherDatabase
 import kr.example.jetnote.network.QuestionAPI
 import kr.example.jetnote.network.ReaderAPI
 import kr.example.jetnote.network.WeatherAPI
+import kr.example.jetnote.repository.FirebaseRepository
 import kr.example.jetnote.repository.QuestionRepository
 import kr.example.jetnote.util.Constants
 import retrofit2.Retrofit
@@ -91,6 +93,13 @@ object AppModule {
             .baseUrl(Constants.READER_BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build().create(ReaderAPI::class.java)
+    }
+
+    // Firebase
+    @Singleton
+    @Provides
+    fun provideFirebaseRepository(): FirebaseRepository {
+       return FirebaseRepository(queryBook = FirebaseFirestore.getInstance().collection("books"))
     }
 
 }
