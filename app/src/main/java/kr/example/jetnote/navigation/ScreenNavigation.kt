@@ -20,6 +20,7 @@ import kr.example.jetnote.screens.note.MemoViewModel
 import kr.example.jetnote.screens.note.Note2
 
 import kr.example.jetnote.screens.readbook.SplashScreen
+import kr.example.jetnote.screens.readbook.details.ReaderDetail
 
 import kr.example.jetnote.screens.readbook.home.ReaderHomeScreen
 import kr.example.jetnote.screens.readbook.login.LoginScreen
@@ -160,6 +161,8 @@ fun ScreenNavigation() {
             SplashScreen(navController = navController)
         }
 
+
+
         composable(ScreenNav.ReaderHomeScreen.name) {
             ReaderHomeScreen(navController = navController, id = null )
         }
@@ -187,6 +190,16 @@ fun ScreenNavigation() {
             ReaderStatsScreen(navController = navController)
         }
 
+        composable(ScreenNav.DetailsScreen.name + "/{bookId}",
+            arguments = listOf(navArgument(
+                name ="bookId"
+            ){ type= NavType.StringType})
+        ) {
+                navBackStackEntry ->
+                  ReaderDetail(navController = navController, id =  navBackStackEntry.arguments?.getString("bookId").toString())
+
+
+        }
 
     }
 }

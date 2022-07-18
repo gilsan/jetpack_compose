@@ -190,11 +190,18 @@ fun TopBarHome(
         },
         actions = {},
         navigationIcon = {
-            Icon(imageVector = icon, contentDescription = "back icon",
-                tint = Color.White, modifier = Modifier.clickable {
-                    navController.navigate(ScreenNav.HomeScreen.name)
+            if (screen == "ReaderHome") {
+                Icon(imageVector = icon, contentDescription = "back icon",
+                    tint = Color.White, modifier = Modifier.clickable {
+                        navController.navigate(ScreenNav.ReaderHomeScreen.name)
+                    })
+            } else {
+                Icon(imageVector = icon, contentDescription = "back icon",
+                    tint = Color.White, modifier = Modifier.clickable {
+                        navController.navigate(ScreenNav.HomeScreen.name)
+                    })
+            }
 
-                })
         },
         backgroundColor = Color.Magenta,
         elevation = elevation
