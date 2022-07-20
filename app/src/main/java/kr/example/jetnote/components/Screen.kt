@@ -1,9 +1,7 @@
 package kr.example.jetnote.components
 
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Home
-import androidx.compose.material.icons.filled.Notifications
-import androidx.compose.material.icons.filled.Person
+import androidx.compose.material.icons.filled.*
 import androidx.compose.ui.graphics.vector.ImageVector
 
 sealed class Screen(
@@ -34,6 +32,17 @@ sealed class AniScreen (
     object Home: AniScreen( "home", Icons.Default.Home, "애니1")
     object Profile: AniScreen("profile", Icons.Default.Person, "애니2")
     object Notification: AniScreen("notification", Icons.Default.Notifications, "애니3")
+}
+
+sealed class FourScreen(
+    val route: String,
+    val icon: ImageVector,
+    val title: String
+) {
+    object BOM1: FourScreen("BOM1", Icons.Default.Home, "홈")
+    object BOM2: FourScreen("BOM2", Icons.Default.ShoppingCart, "쇼핑")
+    object BOM3: FourScreen("BOM3", Icons.Default.Token," 토큰")
+    object BOM4: FourScreen("BOM4", Icons.Default.SentimentVerySatisfied, "만족")
 }
 
 

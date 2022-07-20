@@ -71,6 +71,12 @@ fun HomeTopBar(
 
 
                 DropdownMenu(expanded = firstShowMenu, onDismissRequest = { firstShowMenu = false }) {
+
+                    DropdownMenuItem(onClick = {
+                        navController.navigate(ScreenNav.FourProfile.name)
+                    }) {
+                        Text(text="기본 UI", fontSize=20.sp, fontWeight = FontWeight.SemiBold)
+                   }
                     DropdownMenuItem(onClick = {
                         navController.navigate(ScreenNav.ScreenB.name)
                     }) {

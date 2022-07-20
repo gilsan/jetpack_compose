@@ -1,5 +1,7 @@
 package kr.example.jetnote.navigation
 
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.compose.runtime.Composable
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavType
@@ -12,6 +14,7 @@ import androidx.navigation.compose.rememberNavController
 
 
 import kr.example.jetnote.screens.animation.AnimationScreen
+import kr.example.jetnote.screens.dogprofile.FourProfile
 import kr.example.jetnote.screens.greeting.Greeting
 import kr.example.jetnote.screens.home.HomeScreen
 import kr.example.jetnote.screens.movies.Movie
@@ -41,6 +44,7 @@ import kr.example.jetnote.screens.weather.favoritescreen.FavoriteViewModel
 import kr.example.jetnote.screens.weather.searchscreen.Search
 import kr.example.jetnote.screens.weather.settingscreen.Settings
 
+@RequiresApi(Build.VERSION_CODES.N)
 @Composable
 fun ScreenNavigation() {
     val navController = rememberNavController()
@@ -206,6 +210,11 @@ fun ScreenNavigation() {
             ) {
             navBackStackEntry ->
             UpdateScreen(navController = navController, bookId = navBackStackEntry.arguments?.getString("bookID").toString() )
+        }
+        
+        ////////////////////////////
+        composable(ScreenNav.FourProfile.name) {
+            FourProfile(navController = navController)
         }
 
     }

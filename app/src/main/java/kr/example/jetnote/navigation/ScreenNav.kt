@@ -27,7 +27,9 @@ enum class ScreenNav {
     DetailsScreen,
     UpdateScreen,
     ReaderStatsScreen,
-    AnimationScreen;
+    AnimationScreen,
+    FourProfile
+    ;
 
     companion object {
         fun fromRoute(route: String): ScreenNav
@@ -58,6 +60,7 @@ enum class ScreenNav {
             UpdateScreen.name -> UpdateScreen
             ReaderStatsScreen.name -> ReaderStatsScreen
             AnimationScreen.name -> AnimationScreen
+            FourProfile.name -> FourProfile
             else -> throw IllegalArgumentException("경로를 찿을수 없습니다.")
         }
     }

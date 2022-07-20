@@ -1,6 +1,8 @@
 package kr.example.jetnote.screens.screenc
 
+import android.os.Build
 import android.util.Log
+import androidx.annotation.RequiresApi
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Scaffold
@@ -21,6 +23,7 @@ import kr.example.jetnote.components.MyBotttomBar
 import kr.example.jetnote.components.Screen
 import kr.example.jetnote.components.TopBarWithMenu
 
+@RequiresApi(Build.VERSION_CODES.N)
 @Composable
 fun ScreenC(navController: NavController) {
     val navControllerBottom = rememberNavController()

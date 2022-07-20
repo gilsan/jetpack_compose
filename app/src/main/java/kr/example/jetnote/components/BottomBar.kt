@@ -127,3 +127,40 @@ fun  AniBotttomBar(navController: NavController) {
 
 }
 
+@Composable
+fun  FourBottomBar(navController: NavController) {
+    val backStackEntry by navController.currentBackStackEntryAsState()
+    val currentRoute = backStackEntry?.destination?.route
+
+    val fourScreen = listOf(
+        FourScreen.BOM1,
+        FourScreen.BOM2,
+        FourScreen.BOM3,
+        FourScreen.BOM4
+    )
+
+    BottomNavigation {
+        fourScreen.forEach {
+                screen ->
+            BottomNavigationItem(
+                selected = currentRoute == screen.route,
+                onClick = {
+                    navController.navigate(screen.route) {
+                        popUpTo(navController.graph.findStartDestination().id) {
+                            saveState = true
+                        }
+                        launchSingleTop = true
+                        restoreState = true
+                    }
+                },
+                icon = {
+                    Icon(imageVector = screen.icon, contentDescription = screen.title )
+                },
+                label = {
+                    Text(text=screen.title)
+                })
+        }
+    }
+
+}
+
