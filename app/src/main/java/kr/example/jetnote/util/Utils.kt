@@ -1,5 +1,9 @@
 package kr.example.jetnote.util
 
+import android.icu.text.DateFormat
+import android.os.Build
+import androidx.annotation.RequiresApi
+import com.google.firebase.Timestamp
 import java.text.SimpleDateFormat
 import java.util.*
 import java.util.logging.SimpleFormatter
@@ -37,4 +41,11 @@ fun formatDateTime(timestamp: Int): String {
 
 fun formatDecimals(item: Double): String {
     return " %.0f".format(item)
+}
+
+
+
+@RequiresApi(Build.VERSION_CODES.N)
+fun formatDateFirebase(timestamp: Timestamp): String {
+    return DateFormat.getDateInstance().format(timestamp.toDate()).toString().split(",")[0]
 }

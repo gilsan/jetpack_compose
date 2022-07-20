@@ -33,6 +33,7 @@ import androidx.compose.ui.unit.sp
 import kr.example.jetnote.screens.screenc.component.InputField
 import kr.example.jetnote.screens.screenc.component.RoundedIconButton
 
+@RequiresApi(Build.VERSION_CODES.N)
 @Composable
 fun NotificationScreen() {
     Surface {
@@ -65,10 +66,11 @@ fun BillForm(
     onValueChange: (String)-> Unit = {},
     totalPersonState: MutableState<Double>,
     tipAmountState: MutableState<Double>,
-    splitValueState: MutableState<Int>
+    splitValueState: MutableState<Int>,
+
 ) {
 
-    var totalBillState = remember { mutableStateOf("") }
+    var totalBillState = remember { mutableStateOf( "") }
     val validState = remember(totalBillState.value) {
         totalBillState.value.isNotEmpty()
     }
