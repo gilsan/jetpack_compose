@@ -28,9 +28,12 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.google.firebase.auth.FirebaseAuth
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.launch
 import kr.example.jetnote.model.weathermodel.Favorite
 import kr.example.jetnote.navigation.ScreenNav
 import kr.example.jetnote.screens.weather.favoritescreen.FavoriteViewModel
+
 
 
 @Composable
@@ -162,6 +165,60 @@ fun TopBar(
             }
         },
         actions = {},
+        navigationIcon = {
+            Icon(imageVector = icon, contentDescription = "back icon",
+                tint = Color.White, modifier = Modifier.clickable {
+                    navController.popBackStack()
+
+                })
+        },
+        backgroundColor = Color.Magenta,
+        elevation = elevation
+    )
+}
+
+@Composable
+fun TopBarWithSideBar(
+    title: String = "",
+    icon: ImageVector ,
+    elevation: Dp = 0.dp,
+    navController: NavController,
+    scaffoldState: ScaffoldState,
+    scope: CoroutineScope,
+    open: MutableState<Boolean>
+    ) {
+
+
+    TopAppBar(
+        title= {
+            Row(
+                horizontalArrangement = Arrangement.Center
+            ) {
+                Text(text=title, modifier = Modifier.padding(2.dp),
+                    color=Color.White,
+                    fontSize = 20.sp, fontWeight = FontWeight.Bold)
+            }
+        },
+        actions = {
+
+                    IconButton(onClick = {
+                       open.value = true
+                    }) {
+                        Icon(imageVector = Icons.Default.AccountBox, contentDescription = null, tint = Color.White)
+                    }
+
+                    IconButton(onClick = {
+                        scope.launch {
+                            scaffoldState.drawerState.open()
+                        }
+                    }) {
+                        Icon(
+                            imageVector = Icons.Default.Menu ,
+                            contentDescription = null,
+                            tint= Color.White
+                        )
+                    }
+        },
         navigationIcon = {
             Icon(imageVector = icon, contentDescription = "back icon",
                 tint = Color.White, modifier = Modifier.clickable {

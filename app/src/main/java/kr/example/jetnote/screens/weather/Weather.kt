@@ -17,6 +17,7 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import kr.example.jetnote.components.MainContent
+import kr.example.jetnote.components.QuestionDisplay
 import kr.example.jetnote.components.TopBarWeather
 import kr.example.jetnote.components.WeatherModel
 import kr.example.jetnote.data.DataOrException
@@ -76,6 +77,7 @@ fun Weather(
                         navController = navController,
                         onAddActionClicked = {
                             navController.navigate(ScreenNav.Search.name)
+
                         },
                         elevation = 5.dp
                     )
@@ -88,11 +90,9 @@ fun Weather(
 
             }
 
-
-
     }
 
-
-
 }
+
+
 
