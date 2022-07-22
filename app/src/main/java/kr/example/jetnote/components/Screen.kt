@@ -39,9 +39,9 @@ sealed class FourScreen(
     val icon: ImageVector,
     val title: String
 ) {
-    object BOM1: FourScreen("BOM1", Icons.Default.Home, "홈")
-    object BOM2: FourScreen("BOM2", Icons.Default.ShoppingCart, "쇼핑")
-    object BOM3: FourScreen("BOM3", Icons.Default.Token," 토큰")
+    object BOM1: FourScreen("BOM1", Icons.Default.Email, "메일")
+    object BOM2: FourScreen("BOM2", Icons.Default.Favorite, "반려견")
+    object BOM3: FourScreen("BOM3", Icons.Default.CellWifi," 뉴스")
     object BOM4: FourScreen("BOM4", Icons.Default.SentimentVerySatisfied, "만족")
 }
 

@@ -12,6 +12,7 @@ import kr.example.jetnote.data.NoteDatabase
 import kr.example.jetnote.data.NoteDatabaseDao
 import kr.example.jetnote.data.weather.WeatherDao
 import kr.example.jetnote.data.weather.WeatherDatabase
+import kr.example.jetnote.network.NewsAPI
 import kr.example.jetnote.network.QuestionAPI
 import kr.example.jetnote.network.ReaderAPI
 import kr.example.jetnote.network.WeatherAPI
@@ -101,5 +102,16 @@ object AppModule {
     fun provideFirebaseRepository(): FirebaseRepository {
        return FirebaseRepository(queryBook = FirebaseFirestore.getInstance().collection("books"))
     }
+/////////////////////////////////////////////////////////
+    // News Api
+    @Singleton
+    @Provides
+    fun provideNewsAPI(): NewsAPI {
+        return Retrofit.Builder()
+            .baseUrl(Constants.NEWS_BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build().create(NewsAPI::class.java)
+    }
+
 
 }
