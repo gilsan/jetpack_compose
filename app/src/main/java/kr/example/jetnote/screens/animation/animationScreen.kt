@@ -36,19 +36,19 @@ import kr.example.jetnote.components.*
 
 @Composable
 fun AnimationScreen(navController: NavController) {
-    val navController = rememberNavController()
+    val aniNavController = rememberNavController()
     Scaffold(
         topBar = {
             TopBar(title = "애니메이션", icon = Icons.Default.ArrowBack, navController = navController )
         },
         bottomBar = {
-            AniBotttomBar(navController = navController)
+            AniBotttomBar(navController = aniNavController)
         }
     ) {
         androidx.compose.material.Surface(
             modifier = Modifier.fillMaxSize()
         ) {
-            NavHost(navController = navController , startDestination = AniScreen.Home.route, modifier = Modifier.padding(it) ) {
+            NavHost(navController = aniNavController , startDestination = AniScreen.Home.route, modifier = Modifier.padding(it) ) {
                 composable(AniScreen.Home.route) {
                     AnimatedVisibilitySample()
                 }
@@ -150,7 +150,9 @@ fun Animation2() {
                    .padding(10.dp)
            ) {
                if (expand.value) {
-                   Box(modifier = Modifier.wrapContentSize().background(color= Color.Gray)) {
+                   Box(modifier = Modifier
+                       .wrapContentSize()
+                       .background(color = Color.Gray)) {
                        Text(text="문장 대체 \n 문장 대체\n 문장 대체")
                    }
                }

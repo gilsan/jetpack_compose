@@ -136,7 +136,8 @@ fun  FourBottomBar(navController: NavController) {
         FourScreen.BOM1,
         FourScreen.BOM2,
         FourScreen.BOM3,
-        FourScreen.BOM4
+        FourScreen.BOM4,
+        FourScreen.BOM5
     )
 
     BottomNavigation {
