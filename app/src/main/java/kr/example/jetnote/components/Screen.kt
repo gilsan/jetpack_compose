@@ -42,7 +42,7 @@ sealed class FourScreen(
     object BOM1: FourScreen("BOM1", Icons.Default.Email, "메일")
     object BOM2: FourScreen("BOM2", Icons.Default.Favorite, "반려견")
     object BOM3: FourScreen("BOM3", Icons.Default.CellWifi," 뉴스")
-    object BOM4: FourScreen("BOM4", Icons.Default.SentimentVerySatisfied, "만족")
+    object BOM4: FourScreen("BOM4", Icons.Default.SentimentVerySatisfied, "진행율")
     object BOM5: FourScreen("BOM5", Icons.Default.SentimentVerySatisfied, "크높")
 }
 
