@@ -15,6 +15,7 @@ import androidx.navigation.compose.rememberNavController
 
 import kr.example.jetnote.screens.animation.AnimationScreen
 import kr.example.jetnote.screens.dogprofile.FourProfile
+import kr.example.jetnote.screens.dogprofile.subPages.MusicKnob
 import kr.example.jetnote.screens.greeting.Greeting
 import kr.example.jetnote.screens.home.HomeScreen
 import kr.example.jetnote.screens.movies.Movie
@@ -215,6 +216,11 @@ fun ScreenNavigation() {
         ////////////////////////////
         composable(ScreenNav.FourProfile.name) {
             FourProfile(navController = navController)
+        }
+
+        ////////// Side bar Menu
+        composable(ScreenNav.MusicKnob.name) {
+            MusicKnob(navController = navController)
         }
 
     }

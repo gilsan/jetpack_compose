@@ -149,7 +149,7 @@ fun TopBar(
     title: String = "",
     icon: ImageVector ,
     elevation: Dp = 0.dp,
-    navController: NavController,
+    navController: NavController ,
     screen: String = ""
 ) {
 
