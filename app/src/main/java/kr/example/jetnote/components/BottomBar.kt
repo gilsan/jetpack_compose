@@ -1,5 +1,5 @@
 package kr.example.jetnote.components
-
+// https://medium.com/@alexruskovski/jetpack-compose-custom-views-c5fe3d6cbb03
 import android.util.Log
 import androidx.compose.material.BottomNavigation
 import androidx.compose.material.BottomNavigationItem
@@ -91,7 +91,7 @@ fun  NoteBotttomBar(navController: NavController) {
 }
 
 @Composable
-fun  AniBotttomBar(navController: NavController) {
+fun  AniBottomBar(navController: NavController) {
     val backStackEntry by navController.currentBackStackEntryAsState()
     val currentRoute = backStackEntry?.destination?.route
 

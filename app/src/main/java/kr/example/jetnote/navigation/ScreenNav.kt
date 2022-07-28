@@ -29,7 +29,10 @@ enum class ScreenNav {
     ReaderStatsScreen,
     AnimationScreen,
     FourProfile,
-    MusicKnob
+    MusicKnob,
+    Indicator,
+    Dialer,
+    VolumeKnob,
     ;
 
     companion object {
@@ -63,6 +66,9 @@ enum class ScreenNav {
             AnimationScreen.name -> AnimationScreen
             FourProfile.name -> FourProfile
             MusicKnob.name -> MusicKnob
+            Indicator.name -> Indicator
+            Dialer.name -> Dialer
+            VolumeKnob.name -> VolumeKnob
             else -> throw IllegalArgumentException("경로를 찿을수 없습니다.")
         }
     }

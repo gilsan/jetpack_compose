@@ -14,15 +14,13 @@ import androidx.compose.runtime.livedata.observeAsState
 
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import kr.example.jetnote.components.HomeTopBar
+import kr.example.jetnote.screens.dogprofile.subPages.MusicKnob
 
 
 @Composable
@@ -43,7 +41,7 @@ fun HomeScreen(navController: NavController) {
              val field by countVM.count.observeAsState(0)
              // val fieldValue by countVM.count.observeAsState(0)
             BoxScreen(fieldValue = field , navController = navController) {
-                // fieldValue = it
+                fieldValue = it
                 countVM.onCountChange(it)
             }
         }
@@ -58,15 +56,14 @@ fun BoxScreen(
     navController: NavController,
     onChange: (Int) -> Unit ={}
 ) {
-    val boxSize = 400.dp
-
+    val boxSize = 300.dp
 
         Column(
             modifier = Modifier.fillMaxWidth(),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Box(
-                modifier = Modifier
+                modifier = Modifier.padding(top = 2.dp)
                     .size(boxSize)
                     .background(color = Color.Cyan)
                 ,
@@ -114,7 +111,7 @@ fun BoxScreen(
                 }
 
                 IconButton(onClick = {
-                    onChange(if (fieldValue < 0) 0 else fieldValue -1)
+                    onChange(if (fieldValue <= 0) 0  else fieldValue - 1)
                 },
                     modifier = Modifier
                         .padding(2.dp)
@@ -129,6 +126,11 @@ fun BoxScreen(
                 }
 
             } // End of Row
+
+            MusicKnob( modifier = Modifier.size(150.dp)) {
+                onChange((it *100).toInt())
+
+            }
 
         }
 

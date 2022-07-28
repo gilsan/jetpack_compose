@@ -42,7 +42,7 @@ fun AnimationScreen(navController: NavController) {
             TopBar(title = "애니메이션", icon = Icons.Default.ArrowBack, navController = navController )
         },
         bottomBar = {
-            AniBotttomBar(navController = aniNavController)
+            AniBottomBar(navController = aniNavController)
         }
     ) {
         androidx.compose.material.Surface(

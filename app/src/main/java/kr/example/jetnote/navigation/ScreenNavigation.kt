@@ -15,6 +15,9 @@ import androidx.navigation.compose.rememberNavController
 
 import kr.example.jetnote.screens.animation.AnimationScreen
 import kr.example.jetnote.screens.dogprofile.FourProfile
+import kr.example.jetnote.screens.dogprofile.subPages.Dialer
+import kr.example.jetnote.screens.dogprofile.subPages.IndicatorBar
+import kr.example.jetnote.screens.dogprofile.subPages.Knob
 import kr.example.jetnote.screens.dogprofile.subPages.MusicKnob
 import kr.example.jetnote.screens.greeting.Greeting
 import kr.example.jetnote.screens.home.HomeScreen
@@ -219,9 +222,23 @@ fun ScreenNavigation() {
         }
 
         ////////// Side bar Menu
+        // profileSideBarNav(navController = navController)
         composable(ScreenNav.MusicKnob.name) {
             MusicKnob(navController = navController)
         }
+
+        composable(ScreenNav.Indicator.name) {
+            IndicatorBar(navController = navController)
+        }
+
+        composable(ScreenNav.Dialer.name) {
+            Dialer(navController = navController)
+        }
+
+        composable(ScreenNav.VolumeKnob.name) {
+            Knob(navController = navController)
+        }
+
 
     }
 }
