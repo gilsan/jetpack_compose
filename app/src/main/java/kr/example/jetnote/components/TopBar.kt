@@ -137,6 +137,15 @@ fun HomeTopBar(
                         Text(text="페이징", fontSize=20.sp, fontWeight = FontWeight.SemiBold)
                     }
 
+                    DropdownMenuItem(onClick = {
+                        navController.navigate(ScreenNav.ToDo.name)
+                    }) {
+                        Text(text="해야할일", fontSize=20.sp, fontWeight = FontWeight.SemiBold)
+                    }
+
+
+
+
                 }
 
         },

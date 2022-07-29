@@ -15,7 +15,10 @@ import kr.example.jetnote.data.weather.WeatherDatabase
 import kr.example.jetnote.network.*
 import kr.example.jetnote.repository.FirebaseRepository
 import kr.example.jetnote.repository.QuestionRepository
+import kr.example.jetnote.screens.todo.data.ToDoDao
+import kr.example.jetnote.screens.todo.data.ToDoDatabase
 import kr.example.jetnote.util.Constants
+import kr.example.jetnote.util.Constants.DATABASE_NAME
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.create
@@ -122,6 +125,26 @@ object AppModule {
   }
 
 
-    //////////////////////////////////////////////////
+//////////////////////////////////////////////////
+    /// ToDo Task
+
+    /// ToDo DataBase
+    @Singleton
+    @Provides
+    fun provideToDoDatabase(@ApplicationContext context: Context): ToDoDatabase
+     = Room.databaseBuilder(
+        context,
+        ToDoDatabase::class.java,
+        DATABASE_NAME
+     ).fallbackToDestructiveMigration().build()
+
+    /// ToDo DAO
+    @Singleton
+    @Provides
+    fun provideToDoDao(toDoDatabase: ToDoDatabase): ToDoDao
+     = toDoDatabase.toDoDao()
+
+
+
 
 }

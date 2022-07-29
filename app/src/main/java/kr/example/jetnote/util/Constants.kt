@@ -22,6 +22,10 @@ object Constants {
     const val UNSPLASH_API_KEY = "Mwp34o9Kdkb6TLM12heN_xQgrrbSHivNBFn15yDAapA"
     const val UNSPLASH_SECRETE_KEY ="NVB2OxMM3xH-WPnzryMjt2hL63Eb7kfMU8bHOHqqf1k"
 
+
+    // ToDo Task
+    const val DATABASE_TABLE = "todo_table"
+    const val DATABASE_NAME = "todo_database"
 }
 
 // https://github.com/Hoodlab/retrofit-mvvm-

@@ -39,6 +39,7 @@ import kr.example.jetnote.screens.screenb.ScreenB
 import kr.example.jetnote.screens.screenc.ScreenC
 import kr.example.jetnote.screens.showImage.ShowImage
 import kr.example.jetnote.screens.splash.Splash
+import kr.example.jetnote.screens.todo.ToDo
 import kr.example.jetnote.screens.trivia.Trivia
 
 import kr.example.jetnote.screens.weather.Weather
@@ -173,6 +174,8 @@ fun ScreenNavigation() {
 
 
 
+
+
         composable(ScreenNav.ReaderHomeScreen.name) {
             ReaderHomeScreen(navController = navController, id = null )
         }
@@ -243,6 +246,11 @@ fun ScreenNavigation() {
         /////////// Paging Screen
         composable(ScreenNav.Paging.name) {
             Paging(navController = navController)
+        }
+
+        //////////////////// ToDo Task
+        composable(ScreenNav.ToDo.name) {
+            ToDo(navController = navController)
         }
 
     }
