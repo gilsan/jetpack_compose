@@ -25,6 +25,7 @@ import kr.example.jetnote.screens.movies.Movie
 import kr.example.jetnote.screens.movies.MovieDetail
 import kr.example.jetnote.screens.note.MemoViewModel
 import kr.example.jetnote.screens.note.Note2
+import kr.example.jetnote.screens.paging.Paging
 
 import kr.example.jetnote.screens.readbook.SplashScreen
 import kr.example.jetnote.screens.readbook.details.ReaderDetail
@@ -239,6 +240,10 @@ fun ScreenNavigation() {
             Knob(navController = navController)
         }
 
+        /////////// Paging Screen
+        composable(ScreenNav.Paging.name) {
+            Paging(navController = navController)
+        }
 
     }
 }

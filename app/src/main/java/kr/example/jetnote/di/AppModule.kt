@@ -12,10 +12,7 @@ import kr.example.jetnote.data.NoteDatabase
 import kr.example.jetnote.data.NoteDatabaseDao
 import kr.example.jetnote.data.weather.WeatherDao
 import kr.example.jetnote.data.weather.WeatherDatabase
-import kr.example.jetnote.network.NewsAPI
-import kr.example.jetnote.network.QuestionAPI
-import kr.example.jetnote.network.ReaderAPI
-import kr.example.jetnote.network.WeatherAPI
+import kr.example.jetnote.network.*
 import kr.example.jetnote.repository.FirebaseRepository
 import kr.example.jetnote.repository.QuestionRepository
 import kr.example.jetnote.util.Constants
@@ -113,5 +110,18 @@ object AppModule {
             .build().create(NewsAPI::class.java)
     }
 
+ ////////////////////////////////////////////////////////////
+  // Unsplash
+  @Singleton
+  @Provides
+  fun provideUnsplashAPI(): UnsplashAPI {
+      return Retrofit.Builder()
+          .baseUrl(Constants.UNSPLASH_BASE_URL)
+          .addConverterFactory(GsonConverterFactory.create())
+          .build().create(UnsplashAPI::class.java)
+  }
+
+
+    //////////////////////////////////////////////////
 
 }

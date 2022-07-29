@@ -3,6 +3,7 @@ buildscript {
         compose_version = '1.0.1'
         hilt_version = "2.42"
         roomVersion = "2.4.2"
+        paging_version = "3.1.1"
     }
     repositories {
         // Check that you have the following line (if not, add it):

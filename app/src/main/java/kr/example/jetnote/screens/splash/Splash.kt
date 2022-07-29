@@ -43,6 +43,7 @@ fun Splash(navController: NavController) {
             easing =  { OvershootInterpolator(8f).getInterpolation(it) }))
 
         delay(2000L)
+        navController.popBackStack()
         navController.navigate(route=ScreenNav.HomeScreen.name)
     })
 

@@ -1,23 +1,18 @@
 package kr.example.jetnote.screens.weather
 
-import android.util.Log
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.Scaffold
-import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
-import kr.example.jetnote.components.MainContent
-import kr.example.jetnote.components.QuestionDisplay
 import kr.example.jetnote.components.TopBarWeather
 import kr.example.jetnote.components.WeatherModel
 import kr.example.jetnote.data.DataOrException

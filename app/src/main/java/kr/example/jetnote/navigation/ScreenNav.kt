@@ -33,6 +33,7 @@ enum class ScreenNav {
     Indicator,
     Dialer,
     VolumeKnob,
+    Paging,
     ;
 
     companion object {
@@ -69,6 +70,7 @@ enum class ScreenNav {
             Indicator.name -> Indicator
             Dialer.name -> Dialer
             VolumeKnob.name -> VolumeKnob
+            Paging.name -> Paging
             else -> throw IllegalArgumentException("경로를 찿을수 없습니다.")
         }
     }

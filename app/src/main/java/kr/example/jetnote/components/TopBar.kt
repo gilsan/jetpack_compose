@@ -131,6 +131,12 @@ fun HomeTopBar(
                         Text(text="퀴즈", fontSize=20.sp, fontWeight = FontWeight.SemiBold)
                     }
 
+                    DropdownMenuItem(onClick = {
+                        navController.navigate(ScreenNav.Paging.name)
+                    }) {
+                        Text(text="페이징", fontSize=20.sp, fontWeight = FontWeight.SemiBold)
+                    }
+
                 }
 
         },

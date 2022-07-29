@@ -126,6 +126,10 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth'
     implementation 'com.google.firebase:firebase-firestore'
 
+   /// Paging 3
 
+    implementation("androidx.paging:paging-runtime:$paging_version")
+    // optional - Jetpack Compose integration
+    implementation("androidx.paging:paging-compose:1.0.0-alpha15")
 
 }
