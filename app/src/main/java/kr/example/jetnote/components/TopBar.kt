@@ -2,6 +2,7 @@ package kr.example.jetnote.components
 
 import android.util.Log
 import android.widget.Toast
+import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -32,6 +33,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import kr.example.jetnote.model.weathermodel.Favorite
 import kr.example.jetnote.navigation.ScreenNav
+import kr.example.jetnote.screens.todo.models.Priority
 import kr.example.jetnote.screens.weather.favoritescreen.FavoriteViewModel
 
 
@@ -528,3 +530,130 @@ fun TopBarWeather(
         elevation = elevation
     )
 }
+
+////  ToDo Task
+@Composable
+fun DefaultToDoTopBar(
+    title: String = "",
+    icon: ImageVector ,
+    elevation: Dp = 0.dp,
+    navController: NavController ,
+    screen: String = ""
+) {
+
+    var sortShowMenu by remember { mutableStateOf(false)}
+    var deleteShowMenu by remember { mutableStateOf(false)}
+
+    TopAppBar(
+        title= {
+            Row(
+                horizontalArrangement = Arrangement.Center
+            ) {
+                Text(text=title, modifier = Modifier.padding(2.dp),
+                    color=Color.White,
+                    fontSize = 20.sp, fontWeight = FontWeight.Bold)
+            }
+        },
+        actions = {
+                  IconButton(onClick = {
+                      navController.navigate(ScreenNav.ToDoSearch.name)
+                  }) {
+                      Icon(imageVector = Icons.Default.Search, contentDescription = null, tint = Color.White)
+                  }
+
+                IconButton(onClick = {
+                    sortShowMenu = true
+                }) {
+                    Icon(imageVector = Icons.Default.FilterList, contentDescription = null, tint = Color.White)
+                }
+            
+                IconButton(onClick = {deleteShowMenu =true }) {
+                    Icon(imageVector = Icons.Default.MoreVert, contentDescription = null, tint = Color.White)
+                }
+
+                DropdownMenu(expanded = sortShowMenu, onDismissRequest = { sortShowMenu = false }) {
+                    DropdownMenuItem(onClick = {  sortShowMenu = false }) {
+                        PriorityItem(priority = Priority.LOW)
+                    }
+                    DropdownMenuItem(onClick = { sortShowMenu= false }) {
+                        PriorityItem(priority = Priority.HIGH)
+                    }
+                    DropdownMenuItem(onClick = {  sortShowMenu = false }) {
+                        PriorityItem(priority = Priority.MEDIUM)
+                    }
+                }
+
+                DropdownMenu(expanded = deleteShowMenu, onDismissRequest = { deleteShowMenu = false }) {
+                    DropdownMenuItem(onClick = {  deleteShowMenu = false }) {
+                        Text(text = "전체삭제")
+                    }
+
+                }
+
+
+        },
+        navigationIcon = {
+            Icon(imageVector = icon, contentDescription = "back icon",
+                tint = Color.White, modifier = Modifier.clickable {
+                    navController.popBackStack()
+
+                })
+        },
+        backgroundColor = Color.Magenta,
+        elevation = elevation
+    )
+}
+
+@Composable
+fun PriorityItem(priority: Priority) {
+
+    Row(
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        Canvas(modifier = Modifier.size(16.dp)) {
+            drawCircle(color = priority.color)
+        }
+
+        Text(text=priority.name, style= MaterialTheme.typography.subtitle1,
+            modifier = Modifier.padding(start = 10.dp),
+            color = MaterialTheme.colors.onSurface)
+    }
+
+}
+
+
+
+@Composable
+fun SearchTopBar(
+    title: String = "",
+    icon: ImageVector ,
+    elevation: Dp = 0.dp,
+    navController: NavController ,
+    screen: String = ""
+) {
+
+
+    TopAppBar(
+        title= {
+            Row(
+                horizontalArrangement = Arrangement.Center
+            ) {
+                Text(text=title, modifier = Modifier.padding(2.dp),
+                    color=Color.White,
+                    fontSize = 20.sp, fontWeight = FontWeight.Bold)
+            }
+        },
+        actions = {},
+        navigationIcon = {
+            Icon(imageVector = icon, contentDescription = "back icon",
+                tint = Color.White, modifier = Modifier.clickable {
+                    navController.popBackStack()
+
+                })
+        },
+        backgroundColor = Color.Magenta,
+        elevation = elevation
+    )
+}
+
+

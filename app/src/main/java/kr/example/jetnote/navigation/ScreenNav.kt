@@ -35,6 +35,9 @@ enum class ScreenNav {
     VolumeKnob,
     Paging,
     ToDo,
+    ToDoSearch,
+    ToDoNewTask,
+    ToDoExistTask,
     ;
 
     companion object {
@@ -73,6 +76,9 @@ enum class ScreenNav {
             VolumeKnob.name -> VolumeKnob
             Paging.name -> Paging
             ToDo.name -> ToDo
+            ToDoSearch.name -> ToDoSearch
+            ToDoNewTask.name -> ToDoNewTask
+            ToDoExistTask.name -> ToDoExistTask
             else -> throw IllegalArgumentException("경로를 찿을수 없습니다.")
         }
     }

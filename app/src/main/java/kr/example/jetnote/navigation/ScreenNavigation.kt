@@ -39,7 +39,7 @@ import kr.example.jetnote.screens.screenb.ScreenB
 import kr.example.jetnote.screens.screenc.ScreenC
 import kr.example.jetnote.screens.showImage.ShowImage
 import kr.example.jetnote.screens.splash.Splash
-import kr.example.jetnote.screens.todo.ToDo
+
 import kr.example.jetnote.screens.trivia.Trivia
 
 import kr.example.jetnote.screens.weather.Weather
@@ -249,9 +249,14 @@ fun ScreenNavigation() {
         }
 
         //////////////////// ToDo Task
-        composable(ScreenNav.ToDo.name) {
-            ToDo(navController = navController)
-        }
+           toDoNav(navController = navController)
+//        composable(ScreenNav.ToDo.name) {
+//            ToDo(navController = navController)
+//        }
+//
+//        composable(ScreenNav.ToDoSearch.name) {
+//            ToDoSearch(navController = navController)
+//        }
 
     }
 }
