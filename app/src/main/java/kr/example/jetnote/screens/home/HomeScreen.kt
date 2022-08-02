@@ -11,12 +11,14 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
 import androidx.compose.runtime.*
 import androidx.compose.runtime.livedata.observeAsState
+import androidx.compose.runtime.saveable.rememberSaveable
 
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import kr.example.jetnote.components.HomeTopBar
@@ -24,25 +26,33 @@ import kr.example.jetnote.screens.dogprofile.subPages.MusicKnob
 
 
 @Composable
-fun HomeScreen(navController: NavController) {
+fun HomeScreen(
+    navController: NavController,
+    viewModel: HomeScreenViewModel
+    ) {
     Scaffold(
         topBar = {
             HomeTopBar(title = "홈", icon = Icons.Default.Home, navController = navController )
         },
     ) {
+        var homeCount by viewModel.homeCount
         Surface(
             modifier = Modifier
                 .fillMaxWidth()
                 .fillMaxHeight()
 
         ) {
-             var fieldValue by remember { mutableStateOf(0) }
-             val countVM: HomeScreenViewModel  = viewModel()
-             val field by countVM.count.observeAsState(0)
+                var field = rememberSaveable {
+                    mutableStateOf(0)
+                }
+//             var fieldValue by remember { mutableStateOf(0) }
+//             val countVM: HomeScreenViewModel  = viewModel()
+//             val field by countVM.count.observeAsState(0)
              // val fieldValue by countVM.count.observeAsState(0)
-            BoxScreen(fieldValue = field , navController = navController) {
-                fieldValue = it
-                countVM.onCountChange(it)
+            BoxScreen(fieldValue = field.value , navController = navController) {
+                    field.value = it
+//                fieldValue = it
+//                countVM.onCountChange(it)
             }
         }
 
@@ -63,7 +73,8 @@ fun BoxScreen(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Box(
-                modifier = Modifier.padding(top = 2.dp)
+                modifier = Modifier
+                    .padding(top = 2.dp)
                     .size(boxSize)
                     .background(color = Color.Cyan)
                 ,

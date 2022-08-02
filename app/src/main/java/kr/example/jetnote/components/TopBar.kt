@@ -538,7 +538,9 @@ fun DefaultToDoTopBar(
     icon: ImageVector ,
     elevation: Dp = 0.dp,
     navController: NavController ,
-    screen: String = ""
+    screen: String = "",
+    onDeleteAll: () -> Unit,
+    onSort: (Priority) -> Unit
 ) {
 
     var sortShowMenu by remember { mutableStateOf(false)}
@@ -572,19 +574,28 @@ fun DefaultToDoTopBar(
                 }
 
                 DropdownMenu(expanded = sortShowMenu, onDismissRequest = { sortShowMenu = false }) {
-                    DropdownMenuItem(onClick = {  sortShowMenu = false }) {
+                    DropdownMenuItem(onClick = {
+                        onSort(Priority.LOW)
+                        sortShowMenu = false }) {
                         PriorityItem(priority = Priority.LOW)
                     }
-                    DropdownMenuItem(onClick = { sortShowMenu= false }) {
-                        PriorityItem(priority = Priority.HIGH)
-                    }
-                    DropdownMenuItem(onClick = {  sortShowMenu = false }) {
+                    DropdownMenuItem(onClick = {
+                        onSort(Priority.MEDIUM)
+                        sortShowMenu= false }) {
                         PriorityItem(priority = Priority.MEDIUM)
+                    }
+                    DropdownMenuItem(onClick = {
+                        onSort(Priority.HIGH)
+                        sortShowMenu = false }) {
+                        PriorityItem(priority = Priority.HIGH)
                     }
                 }
 
                 DropdownMenu(expanded = deleteShowMenu, onDismissRequest = { deleteShowMenu = false }) {
-                    DropdownMenuItem(onClick = {  deleteShowMenu = false }) {
+                    DropdownMenuItem(onClick = {
+                         onDeleteAll()
+                         deleteShowMenu = false
+                    }) {
                         Text(text = "전체삭제")
                     }
 
@@ -595,7 +606,10 @@ fun DefaultToDoTopBar(
         navigationIcon = {
             Icon(imageVector = icon, contentDescription = "back icon",
                 tint = Color.White, modifier = Modifier.clickable {
-                    navController.popBackStack()
+
+                    navController.navigate(ScreenNav.HomeScreen.name) {
+                        popUpTo(ScreenNav.HomeScreen.name) { inclusive = true}
+                    }
 
                 })
         },

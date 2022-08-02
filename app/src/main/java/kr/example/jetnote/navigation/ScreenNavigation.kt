@@ -21,6 +21,7 @@ import kr.example.jetnote.screens.dogprofile.subPages.Knob
 import kr.example.jetnote.screens.dogprofile.subPages.MusicKnob
 import kr.example.jetnote.screens.greeting.Greeting
 import kr.example.jetnote.screens.home.HomeScreen
+import kr.example.jetnote.screens.home.HomeScreenViewModel
 import kr.example.jetnote.screens.movies.Movie
 import kr.example.jetnote.screens.movies.MovieDetail
 import kr.example.jetnote.screens.note.MemoViewModel
@@ -63,7 +64,8 @@ fun ScreenNavigation() {
         }
 
         composable(ScreenNav.HomeScreen.name) {
-            HomeScreen(navController = navController)
+            val viewModel = hiltViewModel<HomeScreenViewModel>()
+            HomeScreen(navController = navController, viewModel = viewModel)
         }
 
         composable(ScreenNav.ScreenB.name) {
