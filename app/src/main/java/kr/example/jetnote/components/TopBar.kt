@@ -540,7 +540,8 @@ fun DefaultToDoTopBar(
     navController: NavController ,
     screen: String = "",
     onDeleteAll: () -> Unit,
-    onSort: (Priority) -> Unit
+    onSort: (Priority) -> Unit,
+
 ) {
 
     var sortShowMenu by remember { mutableStateOf(false)}
