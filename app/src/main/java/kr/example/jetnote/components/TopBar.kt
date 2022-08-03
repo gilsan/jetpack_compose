@@ -142,7 +142,13 @@ fun HomeTopBar(
                     DropdownMenuItem(onClick = {
                         navController.navigate(ScreenNav.ToDo.name)
                     }) {
-                        Text(text="해야할일", fontSize=20.sp, fontWeight = FontWeight.SemiBold)
+                        Text(text="SQLite", fontSize=20.sp, fontWeight = FontWeight.SemiBold)
+                    }
+
+                    DropdownMenuItem(onClick = {
+                        navController.navigate(ScreenNav.RestfulAPI.name)
+                    }) {
+                        Text(text="Restful API", fontSize=20.sp, fontWeight = FontWeight.SemiBold)
                     }
 
 

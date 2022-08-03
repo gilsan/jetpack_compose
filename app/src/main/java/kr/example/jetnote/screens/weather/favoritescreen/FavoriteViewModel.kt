@@ -23,7 +23,7 @@ class FavoriteViewModel @Inject constructor( private val repositoryDao: WeatherR
         getFavorite()
     }
 
-    fun getFavorite()  {
+    private fun getFavorite()  {
         viewModelScope.launch(Dispatchers.IO) {
             repositoryDao.getFavorite().distinctUntilChanged().collect {
                 listOffavs ->
@@ -37,6 +37,8 @@ class FavoriteViewModel @Inject constructor( private val repositoryDao: WeatherR
 
         }
     }
+
+
 
 
     fun insertFavorite(favorite: Favorite) {

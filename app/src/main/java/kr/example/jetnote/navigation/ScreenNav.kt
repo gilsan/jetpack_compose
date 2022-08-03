@@ -38,6 +38,7 @@ enum class ScreenNav {
     ToDoSearch,
     ToDoNewTask,
     ToDoExistTask,
+    RestfulAPI,
     ;
 
     companion object {
@@ -79,6 +80,7 @@ enum class ScreenNav {
             ToDoSearch.name -> ToDoSearch
             ToDoNewTask.name -> ToDoNewTask
             ToDoExistTask.name -> ToDoExistTask
+            RestfulAPI.name -> RestfulAPI
             else -> throw IllegalArgumentException("경로를 찿을수 없습니다.")
         }
     }
