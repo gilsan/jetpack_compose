@@ -50,7 +50,7 @@ android {
 
 dependencies {
 
-    implementation 'androidx.core:core-ktx:1.7.0'
+    implementation 'androidx.core:core-ktx:1.8.0'
     implementation "androidx.compose.ui:ui:$compose_version"
     implementation "androidx.compose.material:material:$compose_version"
     implementation "androidx.compose.ui:ui-tooling-preview:$compose_version"
@@ -104,7 +104,7 @@ dependencies {
    // ROOM
     implementation("androidx.room:room-runtime:$roomVersion")
     annotationProcessor("androidx.room:room-compiler:$roomVersion")
-
+    implementation("androidx.room:room-paging:2.4.3")
     // To use Kotlin annotation processing tool (kapt)
     kapt("androidx.room:room-compiler:$roomVersion")
 
@@ -134,6 +134,21 @@ dependencies {
 
     // dataStore preference
     implementation("androidx.datastore:datastore-preferences:1.0.0")
+
+
+    // Horizontal Pager and Indicators - Accompanist
+    implementation "com.google.accompanist:accompanist-pager:$accompanist_version"
+    implementation "com.google.accompanist:accompanist-pager-indicators:$accompanist_version"
+
+    // Swipe to Refresh - Accompanist
+    implementation "com.google.accompanist:accompanist-swiperefresh:$accompanist_version"
+
+    // System UI Controller - Accompanist
+    implementation "com.google.accompanist:accompanist-systemuicontroller:$accompanist_version"
+
+    // Palette API
+    implementation "androidx.palette:palette-ktx:1.0.0"
+
 
 
 }

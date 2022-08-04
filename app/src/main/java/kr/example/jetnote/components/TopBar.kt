@@ -146,7 +146,7 @@ fun HomeTopBar(
                     }
 
                     DropdownMenuItem(onClick = {
-                        navController.navigate(ScreenNav.RestfulAPI.name)
+                        navController.navigate(ScreenNav.SplashRestful.name)
                     }) {
                         Text(text="Restful API", fontSize=20.sp, fontWeight = FontWeight.SemiBold)
                     }

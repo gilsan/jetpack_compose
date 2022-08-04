@@ -15,6 +15,10 @@ import kr.example.jetnote.data.weather.WeatherDatabase
 import kr.example.jetnote.network.*
 import kr.example.jetnote.repository.FirebaseRepository
 import kr.example.jetnote.repository.QuestionRepository
+import kr.example.jetnote.screens.restfulapi.data.local.BorutoDatabase
+import kr.example.jetnote.screens.restfulapi.data.local.HeroDao
+import kr.example.jetnote.screens.restfulapi.data.local.HeroRemoteKeysDao
+import kr.example.jetnote.screens.restfulapi.utils.BORUTO_DATABASE
 import kr.example.jetnote.screens.todo.data.ToDoDao
 import kr.example.jetnote.screens.todo.data.ToDoDatabase
 import kr.example.jetnote.util.Constants
@@ -143,6 +147,27 @@ object AppModule {
     @Provides
     fun provideToDoDao(toDoDatabase: ToDoDatabase): ToDoDao
      = toDoDatabase.toDoDao()
+
+/////////  Restful API  /////////////
+  @Singleton
+  @Provides
+  fun provideHeroDatabase(@ApplicationContext context: Context): BorutoDatabase
+   = Room.databaseBuilder(
+    context,
+    BorutoDatabase::class.java,
+    BORUTO_DATABASE
+   ).fallbackToDestructiveMigration().build()
+
+    @Singleton
+    @Provides
+    fun provideHeroDao(borutoDatabase: BorutoDatabase): HeroDao
+     = borutoDatabase.heroDao()
+
+    @Singleton
+    @Provides
+    fun provideHeroRemoteKeyDto(borutoDatabase: BorutoDatabase): HeroRemoteKeysDao
+     = borutoDatabase.heroRemoteKeys()
+
 
 
 
