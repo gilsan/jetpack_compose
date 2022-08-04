@@ -7,8 +7,10 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.lazy.GridCells
-import androidx.compose.foundation.lazy.LazyVerticalGrid
+//import androidx.compose.foundation.lazy.GridCells
+//import androidx.compose.foundation.lazy.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.material.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
@@ -29,11 +31,7 @@ val Items = listOf(
     Profile("사과", R.drawable.apple),
     Profile("바나나", R.drawable.banana),
     Profile("파인애플",R.drawable.pineapple),
-    Profile("사과", R.drawable.apple),
-    Profile("John", R.drawable.john),
-    Profile("Andrew", R.drawable.andrew),
-    Profile("Elisa", R.drawable.elisa),
-
+    Profile("사과", R.drawable.apple)
     )
 
 
@@ -41,7 +39,7 @@ val Items = listOf(
 @Composable
 fun ProfileScreen() {
     var selectedImage by remember { mutableStateOf("")}
-    LazyVerticalGrid(cells = GridCells.Adaptive(100.dp) ,
+    LazyVerticalGrid(columns = GridCells.Adaptive(100.dp) ,
         modifier = Modifier.background(Color(0xFF06292))
     ) {
         Items.forEach { profile ->

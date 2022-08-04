@@ -10,8 +10,8 @@ sealed class Screen(
     val title: String
 ) {
     object HomeSub: Screen("home", Icons.Default.Home, "홈")
-    object Profile: Screen("profile", Icons.Default.Person, "프로파일")
-    object Notification: Screen("notification", Icons.Default.Notifications, "알림")
+    object Profile: Screen("profile", Icons.Default.Person, "그리드")
+    object Notification: Screen("notification", Icons.Default.Notifications, "개별로나누기")
 }
 
 sealed class NoteScreen (
