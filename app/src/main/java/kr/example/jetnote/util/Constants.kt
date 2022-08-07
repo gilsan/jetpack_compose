@@ -36,6 +36,14 @@ object Constants {
 
     const val PREFERENCE_NAME ="preference_name"
     const val PREFERENCE_KEY ="preference_key"
+
+    //  https://dummyapi.io/account
+    // API Key: 62ef05fbca8c035e9f9cc3aa
+   // Header : app-id: 62ef05fbca8c035e9f9cc3aa
+    /****
+     *  Example: https://dummyapi.io/data/v1/user?page=1&limit=10
+     */
+    const val DUMMYIO_BASE_URL = "https://dummyapi.io/data/v1/"
 }
 
 // https://github.com/Hoodlab/retrofit-mvvm-
