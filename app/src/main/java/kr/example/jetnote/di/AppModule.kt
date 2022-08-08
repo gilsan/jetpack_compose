@@ -166,7 +166,7 @@ object AppModule {
     @Singleton
     @Provides
     fun provideHeroRemoteKeyDto(borutoDatabase: BorutoDatabase): HeroRemoteKeysDao
-     = borutoDatabase.heroRemoteKeys()
+     = borutoDatabase.heroRemoteKeysDao()
 
 
 
