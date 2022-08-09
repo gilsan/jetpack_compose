@@ -46,5 +46,15 @@ sealed class FourScreen(
     object BOM5: FourScreen("BOM5", Icons.Default.SentimentVerySatisfied, "크높")
 }
 
+sealed class Restful(
+    val route: String,
+    val icon: ImageVector,
+    val title: String
+) {
+    object HOME: Restful("HOME", Icons.Default.Home, "홈")
+    object SEARCH: Restful("SEARCH", Icons.Default.Search, "검색")
+    object DETAIL: Restful("DETAIL", Icons.Default.Details, "내역")
+}
+
 
 

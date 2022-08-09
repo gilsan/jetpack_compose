@@ -1,8 +1,9 @@
 package kr.example.jetnote.screens.note
 
+import android.util.Log
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Scaffold
-import androidx.compose.material.Text
+
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.runtime.Composable
@@ -17,7 +18,7 @@ import androidx.navigation.compose.rememberNavController
 import kr.example.jetnote.components.NoteBotttomBar
 import kr.example.jetnote.components.NoteScreen
 import kr.example.jetnote.components.TopBar
-import kr.example.jetnote.screens.note2.NoteScreen
+
 
 
 @Composable
@@ -31,6 +32,7 @@ fun Note2(navController: NavController, noteViewModel: MemoViewModel) {
             NoteBotttomBar(navController = navControllerBottom)
         }
     ) {
+        Log.d("TAG", "$it")
         NotesApp(noteViewModel, navHostController = navControllerBottom)
     }
 
