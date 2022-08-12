@@ -18,6 +18,14 @@ val LightGray = Color(0xFFFCFCFC)
 val MediumGray = Color(0xFF9c9c9c)
 val DarkGray = Color(0xFF141414)
 
+val StarColor = Color(0xFFFFC94D)
+
+
+
+val ShimmerLightGray = Color(0xFFF1F1F1)
+val ShimmerMediumGray = Color(0xFFE3E3E3)
+val ShimmerDarkGray = Color(0xFF1D1D1D)
+
 val Colors.topAppBarContentColor: Color
  @Composable
     get() = if (isLight) Color.White else LightGray

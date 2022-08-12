@@ -37,7 +37,7 @@ object Constants {
     const val PREFERENCE_NAME ="preference_name"
     const val PREFERENCE_KEY ="preference_key"
 
-    const val BORUTO_BASE_URL = "http://10.0.2.2:8080"
+    const val BORUTO_BASE_URL = "http://192.168.1.5:9000"
 
     //  https://dummyapi.io/account
     // API Key: 62ef05fbca8c035e9f9cc3aa

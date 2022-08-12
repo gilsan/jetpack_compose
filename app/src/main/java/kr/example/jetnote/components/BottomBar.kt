@@ -173,7 +173,8 @@ fun  RestfulBotttomBar(navController: NavController) {
     val restfulScreen = listOf(
         Restful.HOME,
         Restful.SEARCH,
-        Restful.DETAIL
+        Restful.DETAIL,
+
 
     )
 
