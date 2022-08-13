@@ -51,7 +51,7 @@ sealed class Restful(
     val icon: ImageVector,
     val title: String
 ) {
-    object HOME: Restful("HOME", Icons.Default.Home, "홈")
+    object HOME: Restful("HOME", Icons.Default.Home, "공유기필요")
     object SEARCH: Restful("SEARCH", Icons.Default.Search, "페이징1")
     object DETAIL: Restful("DETAIL", Icons.Default.Details, "페이징2")
     object CONTENT: Restful("CONTENT", Icons.Default.Details, "내역")
