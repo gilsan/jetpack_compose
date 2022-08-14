@@ -252,13 +252,7 @@ fun ScreenNavigation() {
 
         //////////////////// ToDo Task
            toDoNav(navController = navController)
-//        composable(ScreenNav.ToDo.name) {
-//            ToDo(navController = navController)
-//        }
-//
-//        composable(ScreenNav.ToDoSearch.name) {
-//            ToDoSearch(navController = navController)
-//        }
+
         ///////////////// Restful API
         restFulNav(navController = navController)
 

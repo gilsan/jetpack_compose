@@ -174,7 +174,7 @@ fun  RestfulBotttomBar(navController: NavController) {
         Restful.HOME,
         Restful.SEARCH,
         Restful.DETAIL,
-
+        Restful.SHEET
 
     )
 

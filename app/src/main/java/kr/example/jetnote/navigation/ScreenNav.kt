@@ -42,7 +42,7 @@ enum class ScreenNav {
     SplashRestful,
     WelcomeRestful,
     DetailRestful,
-    SearchRestful
+    SearchRestful,
 
     ;
 
@@ -90,6 +90,7 @@ enum class ScreenNav {
             WelcomeRestful.name -> WelcomeRestful
             DetailRestful.name -> DetailRestful
             SearchRestful.name -> SearchRestful
+
             else -> throw IllegalArgumentException("경로를 찿을수 없습니다.")
         }
     }
