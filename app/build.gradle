@@ -125,6 +125,7 @@ dependencies {
     implementation platform('com.google.firebase:firebase-bom:30.1.0')
     implementation 'com.google.firebase:firebase-auth'
     implementation 'com.google.firebase:firebase-firestore'
+    implementation 'com.google.firebase:firebase-storage-ktx:20.0.1'
 
    /// Paging 3
     implementation("androidx.paging:paging-runtime:$paging_version")

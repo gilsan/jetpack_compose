@@ -43,7 +43,7 @@ enum class ScreenNav {
     WelcomeRestful,
     DetailRestful,
     SearchRestful,
-
+    Instagram,
     ;
 
     companion object {
@@ -90,7 +90,7 @@ enum class ScreenNav {
             WelcomeRestful.name -> WelcomeRestful
             DetailRestful.name -> DetailRestful
             SearchRestful.name -> SearchRestful
-
+            Instagram.name -> Instagram
             else -> throw IllegalArgumentException("경로를 찿을수 없습니다.")
         }
     }

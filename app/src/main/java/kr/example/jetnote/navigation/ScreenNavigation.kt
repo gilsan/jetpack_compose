@@ -256,5 +256,7 @@ fun ScreenNavigation() {
         ///////////////// Restful API
         restFulNav(navController = navController)
 
+        //////////////// Instagram Clone
+        instagramNav(navController = navController)
     }
 }

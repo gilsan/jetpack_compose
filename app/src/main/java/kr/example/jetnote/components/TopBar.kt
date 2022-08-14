@@ -151,6 +151,12 @@ fun HomeTopBar(
                         Text(text="Restful API", fontSize=20.sp, fontWeight = FontWeight.SemiBold)
                     }
 
+                    DropdownMenuItem(onClick = {
+                        navController.navigate(ScreenNav.Instagram.name)
+                    }) {
+                        Text(text="인스타그램", fontSize=20.sp, fontWeight = FontWeight.SemiBold)
+                    }
+
 
 
 
