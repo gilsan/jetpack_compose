@@ -7,9 +7,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:184508255563:android:d852e9428b0a9b4d162cce",
+        "mobilesdk_app_id": "1:184508255563:android:3f9092c77e8f02df162cce",
         "android_client_info": {
-          "package_name": "kr.example.jetareader"
+          "package_name": "kr.example.jetnote"
         }
       },
       "oauth_client": [

@@ -44,6 +44,9 @@ enum class ScreenNav {
     DetailRestful,
     SearchRestful,
     Instagram,
+    InstagramLogin,
+    InstagramRegister,
+    InstagramHome,
     ;
 
     companion object {
@@ -91,6 +94,9 @@ enum class ScreenNav {
             DetailRestful.name -> DetailRestful
             SearchRestful.name -> SearchRestful
             Instagram.name -> Instagram
+            InstagramLogin.name -> InstagramLogin
+            InstagramRegister.name -> InstagramRegister
+            InstagramHome.name -> InstagramHome
             else -> throw IllegalArgumentException("경로를 찿을수 없습니다.")
         }
     }
