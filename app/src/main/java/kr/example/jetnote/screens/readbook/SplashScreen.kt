@@ -25,6 +25,8 @@ import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.delay
 import kr.example.jetnote.navigation.ScreenNav
 
+
+// https://github.com/pdichone/JetAReader
 @Composable
 fun SplashScreen(navController: NavController) {
     val scale  = remember { Animatable(0f) }
