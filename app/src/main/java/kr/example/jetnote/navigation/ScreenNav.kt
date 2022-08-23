@@ -49,6 +49,7 @@ enum class ScreenNav {
     InstagramHome,
     InstagramPost,
     SinglePost,
+    InstagramComments,
     ;
 
     companion object {
@@ -101,6 +102,7 @@ enum class ScreenNav {
             InstagramHome.name -> InstagramHome
             InstagramPost.name -> InstagramPost
             SinglePost.name -> SinglePost
+            InstagramComments.name -> InstagramComments
             else -> throw IllegalArgumentException("경로를 찿을수 없습니다.")
         }
     }
