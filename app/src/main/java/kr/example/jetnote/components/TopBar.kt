@@ -106,6 +106,12 @@ fun HomeTopBar(
                         Text(text="서고", fontSize=20.sp, fontWeight = FontWeight.SemiBold)
                     }
 
+                    DropdownMenuItem(onClick = {
+                        navController.navigate(ScreenNav.Coroutine.name)
+                    }) {
+                        Text(text="Coroutine", fontSize=20.sp, fontWeight = FontWeight.SemiBold)
+                    }
+
                 }
 
                 DropdownMenu(expanded = secondShowMenu, onDismissRequest = { secondShowMenu = false }) {

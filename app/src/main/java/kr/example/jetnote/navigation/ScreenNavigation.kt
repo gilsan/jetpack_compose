@@ -258,5 +258,8 @@ fun ScreenNavigation() {
 
         //////////////// Instagram Clone
         instagramNav(navController = navController)
+
+        /////////// 코루틴
+        coroutineNav(navController = navController)
     }
 }
