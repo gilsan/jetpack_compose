@@ -51,6 +51,9 @@ enum class ScreenNav {
     SinglePost,
     InstagramComments,
     Coroutine,
+    CoroutineLogin,
+    CoroutineSignIn,
+    CoroutineMainContent
     ;
 
     companion object {
@@ -105,6 +108,9 @@ enum class ScreenNav {
             SinglePost.name -> SinglePost
             InstagramComments.name -> InstagramComments
             Coroutine.name -> Coroutine
+            CoroutineLogin.name -> CoroutineLogin
+            CoroutineSignIn.name -> CoroutineSignIn
+            CoroutineMainContent.name -> CoroutineMainContent
             else -> throw IllegalArgumentException("경로를 찿을수 없습니다.")
         }
     }
