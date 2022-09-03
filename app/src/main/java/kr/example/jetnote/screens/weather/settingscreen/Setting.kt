@@ -1,6 +1,7 @@
 package kr.example.jetnote.screens.weather.settingscreen
 
 import android.provider.Settings
+import android.util.Log
 import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -45,7 +46,7 @@ fun Settings(
             TopBar(title = "설정", icon = Icons.Default.ArrowBack , navController = navController )
         },
     ) {
-
+        Log.d("TAG", "$it")
         Surface(
             modifier = Modifier
                 .fillMaxWidth()
