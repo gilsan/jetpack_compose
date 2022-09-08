@@ -1,5 +1,6 @@
 package kr.example.jetnote.screens.note
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -31,6 +32,8 @@ class MemoViewModel @Inject constructor(private val repository: Repository ) : V
                 }
             }
         }
+
+       // getOneNote()
     }
 
     fun addNote(note: Memo) {
@@ -42,6 +45,13 @@ class MemoViewModel @Inject constructor(private val repository: Repository ) : V
     fun removeNote(note: Memo) {
         viewModelScope.launch {
             repository.deleteNote(memo = note)
+        }
+    }
+
+    private fun getOneNote() {
+        viewModelScope.launch {
+            val result =  repository.getOneNote(uuid ="52fd6b9a-48c8-4791-9ea3-9f3d3cc4d621")
+            Log.d("TAG", "[NOTE][52]>>>>>>>>> $result")
         }
     }
 

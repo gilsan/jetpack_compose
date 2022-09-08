@@ -2,6 +2,7 @@ package kr.example.jetnote.screens.note2
 
 
 import android.provider.ContactsContract
+import android.util.Log
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
@@ -35,7 +36,7 @@ fun Note(navController: NavController, noteViewModel: NoteViewModel) {
             MyBotttomBar(navController = navControllerBottom)
         }
         ) {
-
+            Log.d("TAG", "$it")
             NoteModel(noteViewModel, navHostController = navControllerBottom)
 
     }

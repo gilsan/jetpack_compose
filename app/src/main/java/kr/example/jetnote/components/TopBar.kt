@@ -48,6 +48,7 @@ fun HomeTopBar(
 ) {
     var firstShowMenu by remember { mutableStateOf(false)}
     var secondShowMenu by remember { mutableStateOf(false)}
+    var thirdShowMenu by remember { mutableStateOf(false)}
 
     TopAppBar(
         title= {
@@ -72,6 +73,12 @@ fun HomeTopBar(
                     secondShowMenu = true
                 }) {
                     Icon(imageVector = Icons.Default.Person, contentDescription = "firstIcon", tint=Color.White)
+                }
+
+                IconButton(onClick = {
+                    thirdShowMenu = true
+                }) {
+                    Icon(imageVector = Icons.Default.Shop, contentDescription = null, tint=Color.White)
                 }
 
 
@@ -163,11 +170,10 @@ fun HomeTopBar(
                         Text(text="인스타그램", fontSize=20.sp, fontWeight = FontWeight.SemiBold)
                     }
 
-
-
+                }
+                DropdownMenu(expanded = thirdShowMenu, onDismissRequest = { thirdShowMenu = false }) {
 
                 }
-
         },
         navigationIcon = {
             Icon(imageVector = icon, contentDescription = "icon",

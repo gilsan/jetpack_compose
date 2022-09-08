@@ -13,6 +13,9 @@ class Repository @Inject constructor( private  val memoDatabaseDao: MemoDatabase
     suspend fun  updateNote(memo: Memo) = memoDatabaseDao.update(note = memo)
     suspend fun  deleteNote(memo: Memo) = memoDatabaseDao.delete(memo)
     suspend fun  deleteAll() = memoDatabaseDao.deleteAll()
+    suspend fun  getOneNote(uuid: String): Memo {
+        return memoDatabaseDao.getOneNote(id = uuid)
+    }
     fun getAllMemo(): Flow<List<Memo>> = memoDatabaseDao.getNotes().flowOn(Dispatchers.IO).conflate()
 
 }

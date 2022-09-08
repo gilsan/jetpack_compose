@@ -44,7 +44,7 @@ fun NotesApp(
     navHostController: NavHostController
     ) {
     val noteList = noteViewModel.memoList.collectAsState().value
-
+    Log.d("TAG","[Note][47]>>>>>>>>  $noteList")
     NavHost(
         navController = navHostController,
         startDestination =  NoteScreen.Home.route,
